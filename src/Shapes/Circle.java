@@ -11,7 +11,7 @@ public class Circle extends Shape {
 
     @Override
     public double calculatePerimeter() {
-        return Math.rint(2*Math.PI*radius);
+        return Math.rint(2 * Math.PI * radius);
     }
 
     @Override
@@ -19,13 +19,14 @@ public class Circle extends Shape {
         StringBuilder sb = new StringBuilder("I\'m Circle my name is ").append(getName()).append("\n");
         return sb.toString();
     }
+
     @Override
     public double calculateArea() {
-        return Math.rint(Math.PI * radius *radius);
+        return Math.rint(Math.PI * radius * radius);
     }
 
     @Override
     public void description() {
-        System.out.println("Object-Circle, Name-"+getName()+" area-"+calculateArea()+" perimeter-"+calculatePerimeter());
+        System.out.println("Object-Circle, Name-" + getName() + " area-" + calculateArea() + " perimeter-" + calculatePerimeter());
     }
 }

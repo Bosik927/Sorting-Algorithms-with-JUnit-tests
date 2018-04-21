@@ -1,8 +1,8 @@
 package Shapes;
 
-public class Rectangle extends Shape{
+public class Rectangle extends Shape {
 
-    protected double length,height;
+    protected double length, height;
 
     public Rectangle(String name, double len, double hei) {
         super(name);
@@ -12,17 +12,17 @@ public class Rectangle extends Shape{
 
     @Override
     public double calculateArea() {
-        return Math.rint(length*height);
+        return Math.rint(length * height);
     }
 
     @Override
     public double calculatePerimeter() {
-        return Math.rint((length+height)*2);
+        return Math.rint((length + height) * 2);
     }
 
     @Override
     public void description() {
-        System.out.println("Object-Rectangle, Name-"+getName()+" area-"+calculateArea()+" perimeter-"+calculatePerimeter());
+        System.out.println("Object-Rectangle, Name-" + getName() + " area-" + calculateArea() + " perimeter-" + calculatePerimeter());
 
     }
 

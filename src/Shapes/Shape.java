@@ -18,16 +18,18 @@ abstract public class Shape {
         this.name = name;
     }
 
-    public Shape(String name){
+    public Shape(String name) {
         this.name = name;
-        counter ++;
+        counter++;
         ID = counter;
     }
 
     abstract public double calculateArea();
+
     abstract public double calculatePerimeter();
-    public void description(){
-        System.out.println("Object-Shapes. ID-"+ getID() +"Name-"+getName()+" area-"+calculateArea()+" perimeter-"+calculatePerimeter());
+
+    public void description() {
+        System.out.println("Object-Shapes. ID-" + getID() + "Name-" + getName() + " area-" + calculateArea() + " perimeter-" + calculatePerimeter());
     }
 
     @Override

@@ -12,18 +12,18 @@ public class App {
         Circle circle = new Circle("Circle", 3);
         Triangle triangle = new Triangle("Triangle",1,2,3);
         Rectangle rectangle = new Rectangle("Rectangle",3,3);
-        Square square = new Square("square", 2);
+        Square square = new Square("Square", 2);
+        ShapeContainer shapes = new ShapeContainer();
 
-        List<Shape> Shapes =new ArrayList<>();
-        Shapes.add(circle);
-        Shapes.add(triangle);
-        Shapes.add(rectangle);
-        Shapes.add(square);
+        shapes.addShape(circle);
+        shapes.addShape(triangle);
+        shapes.addShape(rectangle);
+        shapes.addShape(square);
 
-        for(Shape sp: Shapes){
-        sp.description();
-        }
-
+        shapes.display();
+        System.out.print("\n");
+        shapes.display("Square");
+        shapes.display("ss");
     }
 
     public static void main(String[] args){

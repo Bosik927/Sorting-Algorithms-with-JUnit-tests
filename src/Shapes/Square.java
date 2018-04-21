@@ -17,7 +17,7 @@ public class Square extends Rectangle {
 
     @Override
     public void description() {
-        System.out.println("Object-Square, Name-"+getName()+" area-"+calculateArea()+" perimeter-"+calculatePerimeter());
+        System.out.println("Object-Square, Name-" + getName() + " area-" + calculateArea() + " perimeter-" + calculatePerimeter());
     }
 
     @Override
