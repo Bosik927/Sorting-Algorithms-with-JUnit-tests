@@ -21,7 +21,7 @@ public class ShapeContainer {
             shape.description();
             counter = false;
         }
-        if(counter){
+        if (counter) {
             System.out.println("Container is empty.");
         }
 
@@ -36,10 +36,13 @@ public class ShapeContainer {
             }
         }
 
-        if(!counter){
-            System.out.println("Error didnt find shape with name "+ name);
+        if (!counter) {
+            System.out.println("Error didnt find shape with name " + name);
         }
 
     }
 
+    public int size() {
+        return shapes.size();
+    }
 }
