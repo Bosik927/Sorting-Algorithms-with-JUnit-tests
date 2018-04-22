@@ -2,10 +2,10 @@ package SortingAlgorithms;
 
 public class QuickSort {
 
-    protected Number[] list;
-    protected int length;
+    private Number[] list;
+    private int length;
 
-    public void sort(Number[] list) {
+    private void sort(Number[] list) {
 
         this.list = list;
         this.length = list.length;
@@ -14,55 +14,59 @@ public class QuickSort {
 
     }
 
-    protected void quickSort(int lowerIndex, int highterIndex) {
+    private void quickSort(int lowerIndex, int highterIndex) {
 
         if (lowerIndex == highterIndex || lowerIndex > highterIndex) return;
 
-        int min, max, piriod;
+        int max, pivot;
 
-        min = lowerIndex;
+        //Helping variables
+        //Pivot always first value
         max = highterIndex;
-        piriod = lowerIndex;
+        pivot = lowerIndex;
 
         int minPartly = 0, maxPartly = highterIndex - lowerIndex;
         Number[] partlySortedList = new Number[highterIndex - lowerIndex + 1];
 
+        //Swap bigger values to right and lower to left
         for (int i = lowerIndex + 1; i <= highterIndex; i++) {
-            if (list[piriod].doubleValue() < list[i].doubleValue()) {
+            if (list[pivot].doubleValue() < list[i].doubleValue()) {
                 partlySortedList[maxPartly] = list[i];
                 max--;
                 maxPartly--;
             } else {
                 partlySortedList[minPartly] = list[i];
-                min++;
                 minPartly++;
             }
         }
-        partlySortedList[minPartly] = list[piriod];
 
+        //Insert pivot to right place
+        partlySortedList[minPartly] = list[pivot];
+
+        //Copy values from helping array to original array
         int sizePartlySortedList = 0;
         for (int i = lowerIndex; i <= highterIndex; i++) {
             list[i] = partlySortedList[sizePartlySortedList];
             sizePartlySortedList++;
         }
+
+        //QuickSort to arrays without pivot
         quickSort(lowerIndex, max - 1);
         quickSort(max + 1, highterIndex);
     }
 
-    protected void swap(int i, int j) {
-
-        Number pom = list[i];
-
-        list[i] = list[j];
-        list[j] = pom;
-
-    }
-
-    public void display() {
-        for (Number num : list) {
+    private void display(Number[] numbers) {
+        for (Number num : numbers) {
             System.out.print(num + ", ");
         }
 
         System.out.printf("\n");
     }
+
+    public void sortAndDisplay(Number[] list) {
+        display(list);
+        sort(list);
+        display(list);
+    }
+
 }
