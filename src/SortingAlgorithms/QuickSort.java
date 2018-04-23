@@ -1,17 +1,34 @@
 package SortingAlgorithms;
+import java.lang.NullPointerException;
 
-public class QuickSort {
+public class QuickSort  {
 
     private Number[] list;
     private int length;
 
-    private void sort(Number[] list) {
+    public QuickSort(){}
+
+    public void sort(Number[] list) throws NullPointerException{
+
+        boolean isNull = isNull(list);
+        if(isNull) throw new NullPointerException("Array content value null");
 
         this.list = list;
         this.length = list.length;
 
         quickSort(0, length - 1);
 
+    }
+
+    private boolean isNull(final Number list[]){
+
+        if(list == null)return true;
+
+        for (Number num : list)
+        {
+            if(num == null) return true;
+        }
+        return false;
     }
 
     private void quickSort(int lowerIndex, int highterIndex) {
@@ -63,7 +80,7 @@ public class QuickSort {
         System.out.printf("\n");
     }
 
-    public void sortAndDisplay(Number[] list) {
+    public void sortAndDisplay(Number[] list) throws NullPointerException{
         display(list);
         sort(list);
         display(list);

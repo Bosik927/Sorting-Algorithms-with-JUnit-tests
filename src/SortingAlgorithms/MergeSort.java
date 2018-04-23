@@ -6,7 +6,10 @@ public class MergeSort {
     private int length;
     private Number[] helper;
 
-    private void sort(Number[] list) {
+    public void sort(Number[] list) {
+
+        boolean isNull = isNull(list);
+        if(isNull) throw new NullPointerException("Array content value null");
 
         this.numbers = list;
         this.length = list.length;
@@ -16,6 +19,16 @@ public class MergeSort {
 
     }
 
+    private boolean isNull(final Number list[]){
+
+        if(list == null)return true;
+
+        for (Number num : list)
+        {
+            if(num == null) return true;
+        }
+        return false;
+    }
     private void mergeSort(int lowerIndex, int highterIndex) {
 
         if (lowerIndex < highterIndex) {

@@ -2,12 +2,26 @@ package SortingAlgorithms;
 
 public class Sorting {
 
+    private boolean isNull(final Number list[]){
+
+        if(list == null)return true;
+
+        for (Number num : list)
+        {
+            if(num == null) return true;
+        }
+        return false;
+    }
+
     public Number[] bubbleSort(final Number list[]) {
 
+        boolean isNull = isNull(list);
+        if(isNull){ return null;}
+
         if (list.length == 0) {
-            System.out.println("This list is empty!");
             return null;
         }
+
 
         Number sortedList[] = list;
 
@@ -25,17 +39,19 @@ public class Sorting {
 
     public Number[] selectionSort(Number list[]) {
 
+        boolean isNull = isNull(list);
+        if(isNull){ return null;}
+
         if (list.length == 0) {
-            System.out.println("This list is empty!");
             return null;
         }
 
         Number sortedList[] = list;
 
-        for (int i = 0; i < sortedList.length - 1; i++) {
+        for (int i = 0; i < sortedList.length -1; i++) {
             Number min = sortedList[i];
             int index = i;
-            for (int j = i + 1; j < sortedList.length - 1; j++) {
+            for (int j = i + 1; j < sortedList.length ; j++) {
 
                 if (min.doubleValue() > sortedList[j].doubleValue()) {
                     min = sortedList[j];
@@ -50,25 +66,27 @@ public class Sorting {
 
     public Number[] insertionSort(Number list[]) {
 
+        boolean isNull = isNull(list);
+        if(isNull){ return null;}
+
         if (list.length == 0) {
-            System.out.println("This list is empty!");
             return null;
         }
+
         Number[] sortedList;
         sortedList = list;
 
-        for (int i = 1; i < sortedList.length - 1; i++) {
+        for (int i = 1; i < sortedList.length  ; i++) {
             Number number = sortedList[i];
             int index = i;
-            for (int j = i; j >= 0; j--) {
+            for (int j = i-1; j >= 0; j--) {
                 if (number.doubleValue() < sortedList[j].doubleValue()) {
-                    index = j + 1;
-                    for (int k = i; k > j + 2; k--) {
-                        swap(sortedList, k, k - 1);
-                    }
+                    index = j ;
                 }
             }
-            swap(sortedList, index, i);
+            for (int k = i; k >index; k--) {
+                swap(sortedList, k, k - 1);
+            }
         }
 
         return sortedList;

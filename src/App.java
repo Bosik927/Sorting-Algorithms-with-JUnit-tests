@@ -89,15 +89,24 @@ public class App {
     }
 
     private static void quickSort() {
+
         Integer list[] = initialList1();
         Double list2[] = initialList2();
         Float list3[] = initialList3();
+        Number list4[] = new Number[1];
 
         QuickSort quick = new QuickSort();
 
-        quick.sortAndDisplay(list);
-        quick.sortAndDisplay(list2);
-        quick.sortAndDisplay(list3);
+        try{
+            quick.sortAndDisplay(list);
+            quick.sortAndDisplay(list2);
+            quick.sortAndDisplay(list3);
+            quick.sortAndDisplay(list4);
+        }catch( NullPointerException e){
+            System.out.println(e.getMessage());
+        }
+
+
 
     }
 
@@ -116,10 +125,11 @@ public class App {
 
     public static void main(String[] args) {
 
-        /*inheritance();*/
-        simpleSortingAlgorithms();
-        /*quickSort();*/
-        /*mergeSort();*/
+        inheritance();
+        /*simpleSortingAlgorithms();
+        quickSort();
+        mergeSort();*/
+
     }
 
 }
